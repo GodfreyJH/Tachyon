@@ -829,8 +829,11 @@ export class MailMessageView extends AbstractViewRight {
 	newTag() {
 		let message = currentMessage();
 		if (message) {
-			let keyword = prompt(i18n('MESSAGE/NEW_TAG'), '')?.replace(/[\s\\]+/g, '');
-			if (keyword.length && isAllowedKeyword(keyword)) {
+			// A tag typed here is the user's own, and the $ namespace belongs to the
+			// keywords clients agree on, so the prefix is dropped rather than left to
+			// be refused by isAllowedKeyword() without a word
+			let keyword = prompt(i18n('MESSAGE/NEW_TAG'), '')?.replace(/[\s\\]+/g, '').replace(/^\$+/, '');
+			if (keyword?.length && isAllowedKeyword(keyword)) {
 				message.toggleTag(keyword);
 				FolderUserStore.currentFolder().permanentFlags.push(keyword);
 			}
