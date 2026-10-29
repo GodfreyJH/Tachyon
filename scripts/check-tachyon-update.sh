@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 # Tachyon update checker
