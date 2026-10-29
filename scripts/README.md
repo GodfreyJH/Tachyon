@@ -1,4 +1,3 @@
-
 # Tachyon Update Checker
 
 A small shell script for system administrators who want to know when a newer published release of Tachyon Webmail is available.
@@ -64,7 +63,6 @@ The script relies on the version directories using numeric components, such as `
 ## Limitations
 
 - This is a release-monitoring utility, not an automatic updater.
-- 
 - It does not download, install or upgrade Tachyon.
 - It assumes the server's `mail` command reports success when the message is accepted for sending; this does not guarantee final delivery.
 - Review the script and test it in your own environment before relying on scheduled notifications.
